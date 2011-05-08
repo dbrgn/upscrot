@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 # Directly upload screenshot to sftp server
 # Author: Danilo Bargen
