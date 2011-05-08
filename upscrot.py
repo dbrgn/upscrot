@@ -1,15 +1,19 @@
 #!/usr/bin/env python2
 
+# Directly upload screenshot to sftp server
+# Author: Danilo Bargen
+# License: GPLv3
+
 import sys
 import subprocess
-import StringIO
 import gtk
 import pynotify
 from datetime import datetime
 
-SERVER = 'ich-wars-nicht.ch'
-TARGETDIR = '/var/www/danilo/tmp/screenshots/'
+SERVER = 'example.org'
+TARGETDIR = '/var/www/tmp/screenshots/'
 URLROOT = 'http://%s/tmp/screenshots/' % SERVER
+
 TIME = datetime.today().strftime('%Y%m%d_%H%M%S')
 FILE = '%s.png' % TIME
 
@@ -29,5 +33,5 @@ clipboard = gtk.clipboard_get()
 clipboard.set_text(URLROOT + FILE)
 clipboard.store()
 
-if pynotify.init('ftpscrot'):
-    pynotify.Notification('ftpscrot', 'Screenshot URL was copied to clipboard.').show()
+if pynotify.init('upscrot'):
+    pynotify.Notification('upscrot', 'Screenshot URL was copied to clipboard.').show()
