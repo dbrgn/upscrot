@@ -9,6 +9,7 @@ import subprocess
 import gtk
 import pynotify
 from datetime import datetime
+from glib import GError
 
 SERVER = 'example.org'
 TARGETDIR = '/var/www/tmp/screenshots/'
@@ -29,9 +30,11 @@ except subprocess.CalledProcessError as e:
     print 'Could not copy file to server: %s' % e
     exit(-1)
 
-clipboard = gtk.clipboard_get()
-clipboard.set_text(URLROOT + FILE)
-clipboard.store()
-
-if pynotify.init('upscrot'):
-    pynotify.Notification('upscrot', 'Screenshot URL was copied to clipboard.').show()
+try:
+    clipboard = gtk.clipboard_get()
+    clipboard.set_text(URLROOT + FILE)
+    clipboard.store()
+    if pynotify.init('upscrot'):
+        pynotify.Notification('upscrot', 'Screenshot URL was copied to clipboard.').show()
+except GError:
+    print '%s%s' % (URLROOT, FILE)

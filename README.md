@@ -7,14 +7,13 @@ Upscrot is a very simple script that will take a screenshot using the linux "scr
 1. Edit the script and change `SERVER`, `TARGETDIR` and `URLROOT` to your likings
 2. Execute upscrot script
 3. Draw a rectangle with your mouse around the desired area
-4. Screenshot will be uploaded automatically, URL will be copied to clipboard
+4. Screenshot will be uploaded automatically. When using Gnome, URL will be copied to clipboard, else it will be printed to the console.
 
 It is recommended that you set up key authentication for your SFTP server, so you don't have to type in your password each time.
 
 ## Requirements ##
 
 * Python 2
-* GTK
 * Scrot
 
 ## Author ##
