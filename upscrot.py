@@ -7,7 +7,10 @@
 import sys
 import subprocess
 import gtk
-import pynotify
+try:
+    import pynotify
+except ImportError:
+    pass
 from datetime import datetime
 from glib import GError
 
@@ -36,5 +39,5 @@ try:
     clipboard.store()
     if pynotify.init('upscrot'):
         pynotify.Notification('upscrot', 'Screenshot URL was copied to clipboard.').show()
-except GError:
+except (GError, NameError):
     print '%s%s' % (URLROOT, FILE)
