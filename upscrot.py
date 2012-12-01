@@ -40,4 +40,5 @@ try:
     if pynotify.init('upscrot'):
         pynotify.Notification('upscrot', 'Screenshot URL was copied to clipboard.').show()
 except (GError, NameError):
-    print '%s%s' % (URLROOT, FILE)
+    pass
+print '%s%s' % (URLROOT, FILE)
