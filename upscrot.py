@@ -6,7 +6,10 @@
 
 import sys
 import subprocess
-import gtk
+try:
+    import gtk
+except ImportError:
+    pass
 try:
     import pynotify
 except ImportError:
