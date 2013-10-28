@@ -36,6 +36,7 @@ except subprocess.CalledProcessError as e:
     print 'Could not copy file to server: %s' % e
     exit(-1)
 
+# GTK clipboard
 try:
     clipboard = gtk.clipboard_get()
     clipboard.set_text(URLROOT + FILE)
@@ -44,4 +45,14 @@ try:
         pynotify.Notification('upscrot', 'Screenshot URL was copied to clipboard.').show()
 except (GError, NameError):
     pass
+
+# X clipboard
+try:
+    clipboards = ['-pi', '-bi']
+    for clipboard in clipboards:
+        xsel = subprocess.Popen(['xsel', clipboard], stdin=subprocess.PIPE)
+        xsel.communicate(input=URLROOT + FILE)
+except OSError:
+    pass
+
 print '%s%s' % (URLROOT, FILE)
