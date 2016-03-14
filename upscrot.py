@@ -4,18 +4,21 @@
 # Author: Danilo Bargen
 # License: GPLv3
 
-import sys
 import subprocess
+from datetime import datetime
+
 try:
     import gtk
+    import glib
+    use_gtk = True
 except ImportError:
-    pass
+    use_gtk = False
+
 try:
     import pynotify
+    use_pynotify = True
 except ImportError:
-    pass
-from datetime import datetime
-from glib import GError
+    use_pynotify = False
 
 SERVER = 'example.org'
 TARGETDIR = '/var/www/tmp/screenshots/'
@@ -37,14 +40,15 @@ except subprocess.CalledProcessError as e:
     exit(-1)
 
 # GTK clipboard
-try:
-    clipboard = gtk.clipboard_get()
-    clipboard.set_text(URLROOT + FILE)
-    clipboard.store()
-    if pynotify.init('upscrot'):
-        pynotify.Notification('upscrot', 'Screenshot URL was copied to clipboard.').show()
-except (GError, NameError):
-    pass
+if use_gtk:
+    try:
+        clipboard = gtk.clipboard_get()
+        clipboard.set_text(URLROOT + FILE)
+        clipboard.store()
+        if use_pynotify and pynotify.init('upscrot'):
+            pynotify.Notification('upscrot', 'Screenshot URL was copied to clipboard.').show()
+    except glib.GError:
+        pass
 
 # X clipboard
 try:
