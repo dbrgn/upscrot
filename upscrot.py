@@ -45,6 +45,7 @@ def init_config():
             'target_dir': '/var/www/tmp/screenshots',
             'base_url': 'https://example.org/tmp/screenshots/',
             'file_prefix': 'screenshot-',
+            'file_permissions': '0644',
         }
         with open(confpath, 'w+') as f:
             config.write(f)
@@ -67,6 +68,10 @@ def main(config):
     except subprocess.CalledProcessError as e:
         print('Could not take screenshot: %s' % e)
         exit(-1)
+
+    # Set permissions
+    mode = config['upload'].get('file_permissions', '0644')
+    os.chmod(screenshot.name, int(mode, base=8))
 
     # Upload file
     try:
