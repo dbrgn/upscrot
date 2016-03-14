@@ -7,19 +7,6 @@
 import subprocess
 from datetime import datetime
 
-try:
-    import gtk
-    import glib
-    use_gtk = True
-except ImportError:
-    use_gtk = False
-
-try:
-    import pynotify
-    use_pynotify = True
-except ImportError:
-    use_pynotify = False
-
 SERVER = 'example.org'
 TARGETDIR = '/var/www/tmp/screenshots/'
 URLROOT = 'http://%s/tmp/screenshots/' % SERVER
@@ -38,17 +25,6 @@ try:
 except subprocess.CalledProcessError as e:
     print('Could not copy file to server: %s' % e)
     exit(-1)
-
-# GTK clipboard
-if use_gtk:
-    try:
-        clipboard = gtk.clipboard_get()
-        clipboard.set_text(URLROOT + FILE)
-        clipboard.store()
-        if use_pynotify and pynotify.init('upscrot'):
-            pynotify.Notification('upscrot', 'Screenshot URL was copied to clipboard.').show()
-    except glib.GError:
-        pass
 
 # X clipboard
 try:
