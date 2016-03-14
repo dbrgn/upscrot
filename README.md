@@ -1,6 +1,7 @@
 # Upscrot #
 
-Upscrot is a very simple script that will take a screenshot using the linux "scrot" command and upload it directly to a SFTP server.
+Upscrot is a simple Python 3 script that will take a screenshot using the linux
+"scrot" command and upload it directly to an SSH server.
 
 ## Usage ##
 
@@ -13,20 +14,26 @@ It is recommended that you set up key authentication for your SFTP server, so yo
 
 ## Requirements ##
 
-* Python 2
+* Python 3
 * Scrot
 
 ## Author ##
 
 * Danilo Bargen
-* http://ich-wars-nicht.ch/
+* https://dbrgn.ch/
 
 ## License ##
 
-Copyright (C) 2011 Danilo Bargen
+Copyright (C) 2011--2016 Danilo Bargen
 
-upscrot is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+upscrot is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
 
-upscrot is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+upscrot is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with upscrot. If not, see http://www.gnu.org/licenses/.
+You should have received a copy of the GNU General Public License along with
+upscrot. If not, see http://www.gnu.org/licenses/.

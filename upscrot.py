@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Directly upload screenshot to sftp server
 # Author: Danilo Bargen
@@ -27,13 +27,13 @@ FILE = '%s.png' % TIME
 try:
     subprocess.check_call(['scrot', '-s', '/tmp/%s' % FILE])
 except subprocess.CalledProcessError as e:
-    print 'Could not take screenshot: %s' % e
+    print('Could not take screenshot: %s' % e)
     exit(-1)
 
 try:
     subprocess.check_call(['scp', '/tmp/%s' % FILE, '%s:%s' % (SERVER, TARGETDIR)])
 except subprocess.CalledProcessError as e:
-    print 'Could not copy file to server: %s' % e
+    print('Could not copy file to server: %s' % e)
     exit(-1)
 
 # GTK clipboard
@@ -55,4 +55,4 @@ try:
 except OSError:
     pass
 
-print '%s%s' % (URLROOT, FILE)
+print('%s%s' % (URLROOT, FILE))
