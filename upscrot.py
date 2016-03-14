@@ -10,6 +10,7 @@ import datetime
 import os
 import subprocess
 import sys
+import tempfile
 
 import appdirs
 
@@ -43,6 +44,7 @@ def init_config():
             'target_host': 'example.org',
             'target_dir': '/var/www/tmp/screenshots',
             'base_url': 'https://example.org/tmp/screenshots/',
+            'file_prefix': 'screenshot-',
         }
         with open(confpath, 'w+') as f:
             config.write(f)
@@ -52,12 +54,16 @@ def init_config():
 
 
 def main(config):
-    timestamp = datetime.datetime.today().strftime('%Y%m%d_%H%M%S')
-    filename = '%s.png' % timestamp
+    timestamp = datetime.datetime.today().strftime('%Y%m%d%H%M%S')
+    prefix = config['upload'].get('file_prefix', 'screenshot-')
+    screenshot = tempfile.NamedTemporaryFile(
+            prefix='%s%s-' % (prefix, timestamp),
+            suffix='.png'
+    )
 
     # Take screenshot
     try:
-        subprocess.check_call(['scrot', '-s', '/tmp/%s' % filename])
+        subprocess.check_call(['scrot', '-s', screenshot.name])
     except subprocess.CalledProcessError as e:
         print('Could not take screenshot: %s' % e)
         exit(-1)
@@ -66,13 +72,13 @@ def main(config):
     try:
         subprocess.check_call([
             'scp',
-            '/tmp/%s' % filename,
+            screenshot.name,
             '%s:%s' % (config['upload']['target_host'], config['upload']['target_dir']),
         ])
     except subprocess.CalledProcessError as e:
         print('Could not copy file to server: %s' % e)
         exit(-1)
-    url = config['upload']['base_url'] + filename
+    url = config['upload']['base_url'] + os.path.basename(screenshot.name)
 
     # X clipboard
     try:
