@@ -1,31 +1,40 @@
-# Upscrot #
+# Upscrot
 
-Upscrot is a simple Python 3 script that will take a screenshot using the linux
-"scrot" command and upload it directly to an SSH server.
+Upscrot is a simple tool that will take a screenshot using the Linux "scrot"
+command and upload it directly to an SSH server.
 
 After uploading, the URL is copied to the X clipboard and can be pasted with
 middle click.
 
-## Usage ##
+## Usage
 
-1. Edit the script and change `SERVER`, `TARGETDIR` and `URLROOT` to your likings
-2. Execute upscrot script
-3. Draw a rectangle with your mouse around the desired area
-4. Screenshot will be uploaded automatically. When using Gnome, URL will be copied to clipboard, else it will be printed to the console.
+First run:
 
-It is recommended that you set up key authentication for your SFTP server, so you don't have to type in your password each time.
+1. Run `upscrot.py`. A sample config file will be created.
+2. Edit the config file with your server information.
 
-## Requirements ##
+Regular run:
 
-* Python 3
-* Scrot
+1. Run `upscrot.py`.
+2. Draw a rectangle with your mouse around the desired area.
+3. Screenshot will be uploaded automatically. The URL will be
+   copied to the X clipboard and printed to the console.
 
-## Author ##
+It is recommended that you set up key authentication for your SSH server, so
+you don't have to type in your password each time.
+
+## Requirements
+
+* python3
+* scrot
+* python-appdirs
+
+## Author
 
 * Danilo Bargen
 * https://dbrgn.ch/
 
-## License ##
+## License
 
 Copyright (C) 2011--2016 Danilo Bargen
 
