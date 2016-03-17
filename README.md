@@ -12,6 +12,11 @@ Install upscrot via pip:
 
     sudo pip install -U upscrot
 
+If you're on Arch Linux you can also install
+[from AUR](https://aur.archlinux.org/packages/upscrot/):
+
+    yaourt -S upscrot
+
 ## Usage
 
 First run:
