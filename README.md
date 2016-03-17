@@ -6,6 +6,12 @@ command and upload it directly to an SSH server.
 After uploading, the URL is copied to the X clipboard and can be pasted with
 middle click.
 
+## Installing
+
+Install upscrot via pip:
+
+    sudo pip install -U upscrot
+
 ## Usage
 
 First run:
@@ -25,9 +31,9 @@ you don't have to type in your password each time.
 
 ## Requirements
 
-* python3
-* scrot
+* python
 * python-appdirs
+* scrot
 
 ## Author
 
