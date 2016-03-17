@@ -43,7 +43,10 @@ setup(
     install_requires=requirements,
     entry_points={
         'console_scripts': [
-            'upscrot=upscrot:main',
+            'upscrot=upscrot.main:entrypoint',
         ],
+    },
+    package_data={
+        '': ['README.md', 'requirements.xt'],
     },
 )

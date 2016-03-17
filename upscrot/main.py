@@ -97,6 +97,10 @@ def main(config):
     print(url)
 
 
-if __name__ == '__main__':
+def entrypoint():
     config = init_config()
     main(config)
+
+
+if __name__ == '__main__':
+    entrypoint()
