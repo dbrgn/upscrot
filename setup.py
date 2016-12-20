@@ -47,6 +47,6 @@ setup(
         ],
     },
     package_data={
-        '': ['README.md', 'requirements.xt'],
+        '': ['README.md', 'requirements.txt'],
     },
 )
