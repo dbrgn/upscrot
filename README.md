@@ -8,9 +8,16 @@ middle click.
 
 ## Installing
 
-Install upscrot via pip:
+Prerequisites:
 
-    sudo pip install -U upscrot
+- python3
+- python3-appdirs
+- scrot
+- xsel (optional for clipboard support)
+
+Then install upscrot via pip:
+
+    sudo pip3 install -U upscrot
 
 If you're on Arch Linux you can also install
 [from AUR](https://aur.archlinux.org/packages/upscrot/):
@@ -33,12 +40,6 @@ Regular run:
 
 It is recommended that you set up key authentication for your SSH server, so
 you don't have to type in your password each time.
-
-## Requirements
-
-* python
-* python-appdirs
-* scrot
 
 ## Author
 
