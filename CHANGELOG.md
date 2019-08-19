@@ -13,9 +13,9 @@ Possible log types:
 - `[security]` to invite users to upgrade in case of vulnerabilities.
 
 
-### UNRELEASED
+### v1.0.0b2 (2019-08-19)
 
-- ...
+- [fixed] Pass -o (overwrite) to scrot
 
 ### v1.0.0b2 (2016-03-17)
 
