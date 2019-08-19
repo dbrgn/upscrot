@@ -64,7 +64,7 @@ def main(config):
 
     # Take screenshot
     try:
-        subprocess.check_call(['scrot', '-s', screenshot.name])
+        subprocess.check_call(['scrot', '-s', '-o', screenshot.name])
     except subprocess.CalledProcessError as e:
         print('Could not take screenshot: %s' % e)
         exit(-1)
