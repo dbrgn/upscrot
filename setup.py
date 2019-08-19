@@ -16,7 +16,7 @@ with open(path.join(here, 'requirements.txt'), encoding='utf-8') as f:
 
 setup(
     name='upscrot',
-    version='1.0.0',
+    version='1.0.1',
 
     description='Directly upload screenshots to a SSH server.',
     long_description=long_description,

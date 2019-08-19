@@ -13,7 +13,11 @@ Possible log types:
 - `[security]` to invite users to upgrade in case of vulnerabilities.
 
 
-### v1.0.0b2 (2019-08-19)
+### v1.0.1 (2019-08-19)
+
+- [changed] Relax `appdirs` version requirement
+
+### v1.0.0 (2019-08-19)
 
 - [fixed] Pass -o (overwrite) to scrot
 
