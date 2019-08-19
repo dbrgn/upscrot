@@ -1,1 +1,1 @@
-appdirs==1.4.0
+appdirs>=1.4,<2
