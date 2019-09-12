@@ -13,6 +13,10 @@ Possible log types:
 - `[security]` to invite users to upgrade in case of vulnerabilities.
 
 
+### v1.1.0 (2019-09-12)
+
+- [added] Allow specifying SSH port
+
 ### v1.0.1 (2019-08-19)
 
 - [changed] Relax `appdirs` version requirement
