@@ -42,6 +42,7 @@ def init_config():
     else:
         config['upload'] = {
             'target_host': 'example.org',
+            'target_port': '22',
             'target_dir': '/var/www/tmp/screenshots',
             'base_url': 'https://example.org/tmp/screenshots/',
             'file_prefix': 'screenshot-',
@@ -77,6 +78,7 @@ def main(config):
     try:
         subprocess.check_call([
             'scp',
+            '-P', config['upload'].get('target_port', '22'),
             screenshot.name,
             '%s:%s' % (config['upload']['target_host'], config['upload']['target_dir']),
         ])
